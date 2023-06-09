@@ -18,6 +18,9 @@ const actions = {
     toggle(todos, index) {
         const todo = todos[index];
         todo.isCompleted = !todo.isCompleted;
+    },
+    delete(todos, index) {
+        todos.splice(index, 1);
     }
 }
 
