@@ -1,9 +1,15 @@
-import html from '../build-ui/core.js'
+import html from '../build-ui/core.js';
+import { connect } from '../js/store.js';
 
-function Footer() {
+function Footer({ todos }) {
     return html`
         <footer class="footer">
-            <span class="todo-count"><strong>0</strong> item left</span>
+            <span class="todo-count">
+                <strong>
+                    ${todos.filter(todo => !todo.isCompleted).length}
+                </strong> 
+                item left
+            </span>
             <ul class="filters">
                 <li>
                     <a class="selected" href="#/">All</a>
@@ -20,4 +26,6 @@ function Footer() {
     `
 }
 
-export default Footer;
+export default connect(state => ({ 
+    todos: state.todos 
+}))(Footer);
