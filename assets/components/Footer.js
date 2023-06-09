@@ -1,7 +1,8 @@
 import html from '../build-ui/core.js';
 import { connect } from '../js/store.js';
 
-function Footer({ todos }) {
+function Footer({ todos, filter ,filters }) {
+    const filterKeys = Object.keys(filters);
     return html`
         <footer class="footer">
             <span class="todo-count">
@@ -11,15 +12,16 @@ function Footer({ todos }) {
                 item left
             </span>
             <ul class="filters">
-                <li>
-                    <a class="selected" href="#/">All</a>
-                </li>
-                <li>
-                    <a href="#/active">Active</a>
-                </li>
-                <li>
-                    <a href="#/completed">Completed</a>
-                </li>
+                ${filterKeys.map(type => `
+                    <li>
+                        <a class="${filter === type && 'selected'}" 
+                            href="#"
+                            onclick="dispatch('switchFilter', '${type}')"
+                        >
+                            ${type[0].toUpperCase() + type.slice(1)}
+                        </a>
+                    </li>
+                `)}
             </ul>
             <button class="clear-completed">Clear completed</button>
         </footer>
@@ -27,5 +29,7 @@ function Footer({ todos }) {
 }
 
 export default connect(state => ({ 
-    todos: state.todos 
+    todos: state.todos,
+    filter: state.filter,
+    filters: state.filters
 }))(Footer);
