@@ -8,7 +8,7 @@ function TodoItem({ name, isCompleted }, index) {
                     class="toggle"
                     type="checkbox"
                     onchange="dispatch('toggle', ${index})"
-                    checked
+                    ${isCompleted && 'checked'}
                 >
                 <label>${name}</label>
                 <button class="destroy"></button>
