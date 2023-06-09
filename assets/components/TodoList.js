@@ -5,7 +5,13 @@ import { connect } from '../js/store.js';
 function TodoList({ todos, filter, filters }) {
     return html`
         <section class="main">
-            <input id="toggle-all" class="toggle-all" type="checkbox">
+            <input 
+                id="toggle-all"
+                class="toggle-all"
+                type="checkbox"
+                onclick="dispatch('toggleAll')"
+                ${(todos.some(todo => !todo.isCompleted) && todos.length > 0) && 'checked'}
+            >
             <label for="toggle-all">Mark all as complete</label>
             <ul class="todo-list">
                 ${todos
