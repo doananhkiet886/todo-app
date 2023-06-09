@@ -1,10 +1,15 @@
 import html from '../build-ui/core.js'
 
-function TodoItem({ name, isCompleted }) {
+function TodoItem({ name, isCompleted }, index) {
     return html`
         <li class="${isCompleted && 'completed'}">
             <div class="view">
-                <input class="toggle" type="checkbox" checked>
+                <input 
+                    class="toggle"
+                    type="checkbox"
+                    onchange="dispatch('toggle', ${index})"
+                    checked
+                >
                 <label>${name}</label>
                 <button class="destroy"></button>
             </div>
