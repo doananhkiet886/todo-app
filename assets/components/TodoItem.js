@@ -1,11 +1,11 @@
 import html from '../build-ui/core.js'
 
-function TodoItem() {
+function TodoItem({ name, isCompleted }) {
     return html`
-        <li class="completed">
+        <li class="${isCompleted && 'completed'}">
             <div class="view">
                 <input class="toggle" type="checkbox" checked>
-                <label>Taste JavaScript</label>
+                <label>${name}</label>
                 <button class="destroy"></button>
             </div>
             <input class="edit" value="Create a TodoMVC template">

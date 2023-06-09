@@ -1,18 +1,17 @@
 import html from '../build-ui/core.js'
 import TodoItem from './TodoItem.js';
+import { connect } from '../js/store.js';
 
-function TodoList() {
+function TodoList({ todos }) {
     return html`
         <section class="main">
             <input id="toggle-all" class="toggle-all" type="checkbox">
             <label for="toggle-all">Mark all as complete</label>
             <ul class="todo-list">
-                ${TodoItem()};
-                ${TodoItem()};
-                ${TodoItem()};
+                ${todos.map(todo => TodoItem(todo))}
             </ul>
         </section>
     `
 }
 
-export default TodoList;
+export default connect()(TodoList);
