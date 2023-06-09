@@ -4,16 +4,7 @@ const init = {
         inputPlaceHolder: 'What needs to be done?'
     },
 
-    todos: [
-        {
-            name: 'Learn JavaScript',
-            isCompleted: false
-        },
-        {
-            name: 'Learn NodeJS',
-            isCompleted: false
-        }
-    ]
+    todos: []
 }
 
 const actions = {
