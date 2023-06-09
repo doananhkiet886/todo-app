@@ -1,12 +1,13 @@
-import html from '../build-ui/core.js'
+import html from '../build-ui/core.js';
+import { connect } from '../js/store.js';
 
-function Header() {
+function Header({ heading, inputPlaceHolder }) {
     return html`
         <header class="header">
-            <h1>todos</h1>
-            <input class="new-todo" placeholder="What needs to be done?" autofocus>
+            <h1>${heading}</h1>
+            <input class="new-todo" placeholder="${inputPlaceHolder}" autofocus>
         </header>
     `
 }
 
-export default Header;
+export default connect(state => state.header)(Header);

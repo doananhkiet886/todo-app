@@ -1,4 +1,9 @@
 const init = {
+    header: {
+        heading: 'todos',
+        inputPlaceHolder: 'What needs to be done?'
+    },
+
     todos: [
         {
             name: 'Learn JavaScript',
