@@ -23,7 +23,8 @@ function Footer({ todos, filter ,filters }) {
                     </li>
                 `)}
             </ul>
-            <button class="clear-completed" onclick="dispatch('clearCompleted')">Clear completed</button>
+            ${todos.some(todo => todo.isCompleted) && `<button class="clear-completed" onclick="dispatch('clearCompleted')">Clear completed</button>`}
+            
         </footer>
     `
 }
