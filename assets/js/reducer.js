@@ -4,7 +4,13 @@ const init = {
         inputPlaceHolder: 'What needs to be done?'
     },
 
-    todos: []
+    todos: [],
+
+    filter: {
+        all: () => true,
+        active: () => true,
+        completed: () => true,
+    }
 }
 
 const actions = {
