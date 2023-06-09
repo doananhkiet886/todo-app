@@ -5,8 +5,10 @@ const init = {
     },
 
     todos: [],
+    
+    filter: 'all',
 
-    filter: {
+    filters: {
         all: () => true,
         active: () => true,
         completed: () => true,
