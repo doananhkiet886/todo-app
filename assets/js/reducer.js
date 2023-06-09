@@ -12,12 +12,12 @@ const actions = {
             storage.set(TODOS_KEY, todos);
         }
     },
-    toggle({ todos }, index) {
+    toggle({ todos }, [index]) {
         const todo = todos[index];
         todo.isCompleted = !todo.isCompleted;
         storage.set(TODOS_KEY, todos);
     },
-    delete({ todos }, index) {
+    delete({ todos }, [index]) {
         todos.splice(index, 1);
         storage.set(TODOS_KEY, todos);
     },
