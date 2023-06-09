@@ -39,6 +39,11 @@ const actions = {
     },
     clearCompleted(state) {
         state.todos = state.todos.filter(init.filters.active);
+    },
+    toggleAll({ todos }) {
+        todos.forEach(todo => {
+            todo.isCompleted = true;
+        })
     }
 }
 

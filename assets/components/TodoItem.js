@@ -12,7 +12,7 @@ function TodoItem({ name, isCompleted }, index) {
                 <label>${name}</label>
                 <button class="destroy" onclick="dispatch('delete', ${index})"></button>
             </div>
-            <input 
+            <input
                 class="edit" value="${name}"
                 onkeyup="event.keyCode === 13 && dispatch('edit', ${index}, this.value)"
                 onblur="dispatch('edit', ${index}, this.value)"
