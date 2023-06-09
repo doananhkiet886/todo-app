@@ -15,7 +15,7 @@ function TodoItem({ name, isCompleted }, index) {
             <input
                 class="edit" value="${name}"
                 onkeyup="event.keyCode === 13 && dispatch('edit', ${index}, this.value)"
-                onblur="dispatch('edit', ${index}, this.value)"
+                onblur="dispatch('edit', ${index}, this.value.trim())"
             >
         </li>
     `
