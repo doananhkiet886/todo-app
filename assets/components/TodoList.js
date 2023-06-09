@@ -1,5 +1,4 @@
 import html from '../build-ui/core.js'
-import { connect } from '../js/store.js';
 import TodoItem from './TodoItem.js';
 
 function TodoList() {
