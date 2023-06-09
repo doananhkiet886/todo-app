@@ -23,6 +23,10 @@ const actions = {
             isCompleted: false
         }
         todos.push(newTodo);
+    },
+    toggle(todos, index) {
+        const todo = todos[index];
+        todo.isCompleted = !todo.isCompleted;
     }
 }
 
