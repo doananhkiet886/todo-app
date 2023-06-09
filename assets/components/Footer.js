@@ -12,9 +12,14 @@ function Footer({ todos, filter ,filters }) {
                 item left
             </span>
             <ul class="filters">
-                ${filterKeys.map(filterKey => `
+                ${filterKeys.map(type => `
                     <li>
-                        <a class="selected" href="#/">${filterKey[0].toUpperCase() + filterKey.slice(1)}</a>
+                        <a class="${filter === type && 'selected'}" 
+                            href="#"
+                            onclick="dispatch('switchFilter', '${type}')"
+                        >
+                            ${type[0].toUpperCase() + type.slice(1)}
+                        </a>
                     </li>
                 `)}
             </ul>
