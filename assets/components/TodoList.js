@@ -8,7 +8,7 @@ function TodoList({ todos }) {
             <input id="toggle-all" class="toggle-all" type="checkbox">
             <label for="toggle-all">Mark all as complete</label>
             <ul class="todo-list">
-                ${todos.map(todo => TodoItem(todo))}
+                ${todos.map((todo, index) => TodoItem(todo, index))}
             </ul>
         </section>
     `
