@@ -9,7 +9,7 @@ function Header({ heading, inputPlaceHolder }) {
                 class="new-todo" 
                 placeholder="${inputPlaceHolder}"
                 autofocus
-                onkeyup="event.keyCode === 13 && dispatch('add', this.value)"
+                onkeyup="event.keyCode === 13 && dispatch('add', this.value.trim())"
             >
         </header>
     `

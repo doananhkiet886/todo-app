@@ -2,13 +2,15 @@ import { dataInit as init } from './data.js';
 import { storage, TODOS_KEY }from './data.js';
 
 const actions = {
-    add({ todos }, name) {
-        const newTodo = {
-            name,
-            isCompleted: false
+    add({ todos }, [name]) {
+        if (name) {
+            const newTodo = {
+                name,
+                isCompleted: false
+            }
+            todos.push(newTodo);
+            storage.set(TODOS_KEY, todos);
         }
-        todos.push(newTodo);
-        storage.set(TODOS_KEY, todos);
     },
     toggle({ todos }, index) {
         const todo = todos[index];
@@ -20,9 +22,13 @@ const actions = {
         storage.set(TODOS_KEY, todos);
     },
     edit({ todos }, [index, newTodoName]) {
-        const todo = todos[index];
-        todo.name = newTodoName;
-        storage.set(TODOS_KEY, todos);
+        if (newTodoName) {
+            const todo = todos[index];
+            todo.name = newTodoName;
+            storage.set(TODOS_KEY, todos);
+        } else {
+            todos.splice(index, 1);
+        }
     },
     switchFilter(state, [type]) {
         state.filter = type;
