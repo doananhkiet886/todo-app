@@ -17,9 +17,18 @@ const init = {
 }
 
 const actions = {
-    
+    add(todos, name) {
+        const newTodo = {
+            name,
+            isCompleted: false
+        }
+        todos.push(newTodo);
+    }
 }
 
 export default function reducer(state = init, action, ...args) {
+    if (action) {
+        actions[action](state.todos, ...args);
+    }
     return state;
 }

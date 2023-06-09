@@ -5,7 +5,12 @@ function Header({ heading, inputPlaceHolder }) {
     return html`
         <header class="header">
             <h1>${heading}</h1>
-            <input class="new-todo" placeholder="${inputPlaceHolder}" autofocus>
+            <input 
+                class="new-todo" 
+                placeholder="${inputPlaceHolder}"
+                autofocus
+                onkeyup="event.keyCode === 13 && dispatch('add', this.value)"
+            >
         </header>
     `
 }
