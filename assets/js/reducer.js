@@ -30,6 +30,9 @@ const actions = {
             todos.splice(index, 1);
         }
     },
+    endEdit() {
+        
+    },
     switchFilter(state, [type]) {
         state.filter = type;
     },

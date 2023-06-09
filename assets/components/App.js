@@ -5,7 +5,6 @@ import Footer from './Footer.js';
 import { connect } from '../js/store.js'
 
 function App({ todos }) {
-    console.log(todos);
     return html`
         ${Header()}
         ${TodoList()}
