@@ -23,7 +23,7 @@ function Footer({ todos, filter ,filters }) {
                     </li>
                 `)}
             </ul>
-            <button class="clear-completed">Clear completed</button>
+            <button class="clear-completed" onclick="dispatch('clearCompleted')">Clear completed</button>
         </footer>
     `
 }

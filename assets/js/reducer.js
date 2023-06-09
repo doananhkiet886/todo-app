@@ -36,6 +36,9 @@ const actions = {
     },
     switchFilter(state, [type]) {
         state.filter = type;
+    },
+    clearCompleted(state) {
+        state.todos = state.todos.filter(init.filters.active);
     }
 }
 
