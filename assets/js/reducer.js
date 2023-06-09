@@ -21,6 +21,10 @@ const actions = {
     },
     delete(todos, index) {
         todos.splice(index, 1);
+    },
+    edit(todos, [index, newTodoName]) {
+        const todo = todos[index];
+        todo.name = newTodoName;
     }
 }
 

@@ -2,7 +2,7 @@ import html from '../build-ui/core.js'
 
 function TodoItem({ name, isCompleted }, index) {
     return html`
-        <li class="${isCompleted && 'completed'}">
+        <li class="${isCompleted && 'completed'}" ondblclick="this.classList.add('editing')">
             <div class="view">
                 <input class="toggle"
                 type="checkbox" 
@@ -12,7 +12,11 @@ function TodoItem({ name, isCompleted }, index) {
                 <label>${name}</label>
                 <button class="destroy" onclick="dispatch('delete', ${index})"></button>
             </div>
-            <input class="edit" value="Create a TodoMVC template">
+            <input 
+                class="edit" value="${name}"
+                onkeyup="event.keyCode === 13 && dispatch('edit', ${index}, this.value)"
+                onblur="dispatch('edit', ${index}, this.value)"
+            >
         </li>
     `
 }
