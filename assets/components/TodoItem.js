@@ -4,7 +4,7 @@ function TodoItem({ name, isCompleted }) {
     return html`
         <li class="${isCompleted && 'completed'}">
             <div class="view">
-                <input class="toggle" type="checkbox" checked>
+                <input class="toggle" type="checkbox" ${isCompleted && 'checked'}>
                 <label>${name}</label>
                 <button class="destroy"></button>
             </div>
